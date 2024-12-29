@@ -1,0 +1,173 @@
+<div id="glowscript" class="glowscript">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link type="text/css" href="https://www.glowscript.org/css/redmond/2.1/jquery-ui.custom.css" rel="stylesheet" />
+<link type="text/css" href="https://www.glowscript.org/css/ide.css" rel="stylesheet" />
+<script type="text/javascript" src="https://www.glowscript.org/lib/jquery/2.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://www.glowscript.org/lib/jquery/2.1/jquery-ui.custom.min.js"></script>
+<script type="text/javascript" src="https://www.glowscript.org/package/glow.3.2.min.js"></script>
+<script type="text/javascript" src="https://www.glowscript.org/package/RSrun.3.2.min.js"></script>
+<script type="text/javascript"><!--//--><![CDATA[//><!--
+
+// START JAVASCRIPT
+;(function() {;
+var ρσ_modules = {};
+ρσ_modules.pythonize = {};
+
+(function(){
+    function strings() {
+        var string_funcs, exclude, name;
+        string_funcs = set("capitalize strip lstrip rstrip islower isupper isspace lower upper swapcase center count endswith startswith find rfind index rindex format join ljust rjust partition rpartition replace split rsplit splitlines zfill".split(" "));
+        if (!arguments.length) {
+            exclude = (function(){
+                var s = ρσ_set();
+                s.jsset.add("split");
+                s.jsset.add("replace");
+                return s;
+            })();
+        } else if (arguments[0]) {
+            exclude = Array.prototype.slice.call(arguments);
+        } else {
+            exclude = null;
+        }
+        if (exclude) {
+            string_funcs = string_funcs.difference(set(exclude));
+        }
+        var ρσ_Iter0 = string_funcs;
+        ρσ_Iter0 = ((typeof ρσ_Iter0[Symbol.iterator] === "function") ? (ρσ_Iter0 instanceof Map ? ρσ_Iter0.keys() : ρσ_Iter0) : Object.keys(ρσ_Iter0));
+        for (var ρσ_Index0 of ρσ_Iter0) {
+            name = ρσ_Index0;
+            (ρσ_expr_temp = String.prototype)[(typeof name === "number" && name < 0) ? ρσ_expr_temp.length + name : name] = (ρσ_expr_temp = ρσ_str.prototype)[(typeof name === "number" && name < 0) ? ρσ_expr_temp.length + name : name];
+        }
+    };
+    if (!strings.__module__) Object.defineProperties(strings, {
+        __module__ : {value: "pythonize"}
+    });
+
+    ρσ_modules.pythonize.strings = strings;
+})();
+async function __main__() {
+"use strict";
+    var display = canvas;
+    var scene = canvas();
+
+    var version, print, arange, __name__, type, ρσ_ls, x1, x2, x1dot, x2dot, left, right, block1, block2, spring1, spring2, spring3, g1, f1, f2, f3, f4, k, m, b, t, dt, w1, w2, F1, F2, x1ddot, x2ddot, y1, y2, x1a, x2a;
+    version = ρσ_list_decorate([ "3.2", "glowscript" ]);
+    Array.prototype['+'] = function(r) {return this.concat(r)}
+    Array.prototype['*'] = function(r) {return __array_times_number(this, r)}
+    window.__GSlang = "vpython";
+    print = GSprint;
+    arange = range;
+    __name__ = "__main__";
+    type = pytype;
+    var strings = ρσ_modules.pythonize.strings;
+
+    strings();
+    "5";
+    x1 = 1["-u"]()["*"](.05);
+    "6";
+    x2 = 0;
+    "9";
+    x1dot = 0;
+    "10";
+    x2dot = 0;
+    "12";
+    left = ρσ_interpolate_kwargs.call(this, sphere, [ρσ_desugar_kwargs({pos: vector(1["-u"]()["*"](.2), 0, 0), radius: .01, color: color.red})]);
+    "13";
+    right = ρσ_interpolate_kwargs.call(this, sphere, [ρσ_desugar_kwargs({pos: vector(.2, 0, 0), radius: .01, color: color.red})]);
+    "14";
+    block1 = ρσ_interpolate_kwargs.call(this, box, [ρσ_desugar_kwargs({pos: vector(1["-u"]()["*"](.07)["+"](x1), 0, 0), size: vector(.04, .02, .02), color: color.yellow})]);
+    "15";
+    block2 = ρσ_interpolate_kwargs.call(this, box, [ρσ_desugar_kwargs({pos: vector(.07["+"](x2), 0, 0), size: vector(.04, .02, .02), color: color.cyan})]);
+    "16";
+    spring1 = ρσ_interpolate_kwargs.call(this, helix, [ρσ_desugar_kwargs({pos: left.pos, axis: block1.pos["-"](1["*"](left.pos)), radius: .01, thickness: .003})]);
+    "17";
+    spring2 = ρσ_interpolate_kwargs.call(this, helix, [ρσ_desugar_kwargs({pos: block1.pos, axis: block2.pos["-"](1["*"](block1.pos)), radius: .005, thickness: .003})]);
+    "18";
+    spring3 = ρσ_interpolate_kwargs.call(this, helix, [ρσ_desugar_kwargs({pos: right.pos, axis: block2.pos["-"](1["*"](right.pos)), radius: .01, thickness: .003})]);
+    "22";
+    g1 = ρσ_interpolate_kwargs.call(this, graph, [ρσ_desugar_kwargs({xtitle: "t", ytitle: "x", width: 500, height: 250})]);
+    "23";
+    f1 = ρσ_interpolate_kwargs.call(this, gcurve, [ρσ_desugar_kwargs({color: color.blue, label: "x1"})]);
+    "24";
+    f2 = ρσ_interpolate_kwargs.call(this, gcurve, [ρσ_desugar_kwargs({color: color.red, label: "x2"})]);
+    "25";
+    f3 = ρσ_interpolate_kwargs.call(this, gcurve, [ρσ_desugar_kwargs({color: color.green})]);
+    "26";
+    f4 = ρσ_interpolate_kwargs.call(this, gcurve, [ρσ_desugar_kwargs({color: color.purple})]);
+    "28";
+    (await scene.waitfor("click"));
+    "30";
+    k = 15;
+    "31";
+    m = .1;
+    "32";
+    b = 30;
+    "33";
+    t = 0;
+    "34";
+    dt = .01;
+    "35";
+    w1 = sqrt(k["/"](m));
+    "36";
+    w2 = sqrt(k["+"](2["*"](b))["/"](m));
+    "39";
+    while (t["<"](5)) {
+        "40";
+        (await rate(50));
+        "43";
+        F1 = 1["-u"]()["*"](k)["*"](x1)["-"](1["*"](b)["*"](x1["-"](1["*"](x2))));
+        "44";
+        F2 = 1["-u"]()["*"](k)["*"](x2)["-"](1["*"](b)["*"](x2["-"](1["*"](x1))));
+        "45";
+        x1ddot = F1["/"](m);
+        "46";
+        x2ddot = F2["/"](m);
+        "48";
+        x1dot = x1dot["+"](x1ddot["*"](dt));
+        "49";
+        x2dot = x2dot["+"](x2ddot["*"](dt));
+        "50";
+        x1 = x1["+"](x1dot["*"](dt));
+        "51";
+        x2 = x2["+"](x2dot["*"](dt));
+        "52";
+        block1.pos = vector(1["-u"]()["*"](.07)["+"](x1), 0, 0);
+        "53";
+        block2.pos = vector(.07["+"](x2), 0, 0);
+        "55";
+        spring1.axis = block1.pos["-"](1["*"](left.pos));
+        "56";
+        spring2.pos = block1.pos;
+        "57";
+        spring2.axis = block2.pos["-"](1["*"](block1.pos));
+        "58";
+        spring3.axis = block2.pos["-"](1["*"](right.pos));
+        "60";
+        t = t["+"](dt);
+        "62";
+        y1 = cos(w1["*"](t));
+        "63";
+        y2 = cos(w2["*"](t));
+        "64";
+        x1a = .5["*"](y1["+"](y2));
+        "65";
+        x2a = .5["*"](y1["-"](1["*"](y2)));
+        "67";
+        f1.plot(t, x1["+"](.05));
+        "68";
+        f2.plot(t, x2["+"](.2));
+        "69";
+        f3.plot(t, x1a);
+        "70";
+        f4.plot(t, x2a["+"](.25));
+    }
+};
+if (!__main__.__module__) Object.defineProperties(__main__, {
+    __module__ : {value: null}
+});
+
+;$(function(){ window.__context = { glowscript_container: $("#glowscript").removeAttr("id") }; __main__() })})()
+// END JAVASCRIPT
+
+//--><!]]></script>
+</div>
